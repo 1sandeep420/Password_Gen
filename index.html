@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Stylesheet" href="../Passwordgenerator/index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+
+        <div id="inner_container">
+
+            <h2>
+                Password Generator
+            </h2>
+
+            
+            <div id="input_container">
+                <span id="main_input"></span>
+                <button><i class="fa-solid fa-copy"></i></button>
+            </div>
+          
+            <div id="password_length">
+                <input id="slider" type="range" min="1" max="30" value="8">
+                <span id="slider_value">0</span>
+            </div>
+
+            <div>
+                <label>Include lower case letters(a-z)</label>
+                <input id="Lower_case"  type="checkbox">
+            </div>
+            <div>
+                <label>Include Upper case letters(A-Z)</label>
+                <input id="Upper_case"  type="checkbox">
+            </div>
+            <div>
+                <label>Include Numbers(0-9)</label>
+                <input  id="Numbers"  type="checkbox">
+            </div>
+            <div>
+                <label>Include symbols(!-=)</label>
+                <input  id="Special_char"  type="checkbox">
+            </div>
+
+
+            <button   id="Generate_button">Generate password</button>
+           
+
+        </div>
+
+       
+
+
+        
+    </div>
+    
+    <script src="../Passwordgenerator/index.js"></script>
+</body>
+</html>
