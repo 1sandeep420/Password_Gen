@@ -8,7 +8,7 @@ const Upper_case = document.getElementById('Upper_case')
 const Numbers =  document.getElementById('Numbers')
 const specialChar =  document.getElementById('Special_char')
 const mainInput = document.getElementById('main_input');
-
+const Copy = document.getElementById('copy');
 sliderValue = document.getElementById('slider_value');
 
 sliderRange.addEventListener('input' ,() =>
@@ -25,21 +25,21 @@ generatePassword.addEventListener('click', generate)
 function generate()
 {
 
-    let password = '';
-    for (let i=0 ; i<sliderRange.value;i++)
+   let password = [];
+   while(password.length<sliderRange.value)
     {
     if(Numbers.checked)
     {
-        let Random_numbers =  Math.random()*10;
+        let Random_numbers = Math.floor( Math.random()*10);
         console.log(Math.floor(Random_numbers))
-        console.log(password+=Math.floor(Random_numbers))
+        password.push(Random_numbers)
     }
     
     if(Lower_case.checked)
     {
         let Random_numbers =  Math.random()*26;
         let Small= small_alpha.charAt(Random_numbers);
-        console.log(password+=Small)
+        password.push(Small)
         
     }
 
@@ -47,23 +47,42 @@ function generate()
     {
         let Random_numbers =  Math.random()*26;
         let Big = big_alpha.charAt(Random_numbers);
-        console.log(password+=Big)   
+        password.push(Big)  
 
     }
     if(specialChar.checked)
     {
         let Random_numbers =  Math.random()*26;
         let Special = special_chars.charAt(Random_numbers)
-        console.log(password+=Special)
-        break;       
+        password.push(Special)
+       
     }
 
-    mainInput.innerText=password
+    password.slice(0,sliderRange.value)
+
+    mainInput.innerText=password.join('')
   
     }  
     
 
 }
+
+
+Copy.addEventListener('click', ()=>
+
+{
+
+    
+    let text = mainInput.innerText; // Fixed text
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Copied to clipboard: " + text);
+    }).catch(err => {
+        console.error("Failed to copy: ", err);
+    });
+
+    
+
+})
 
 })
 
